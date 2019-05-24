@@ -29,3 +29,32 @@ Carga_listas::Carga_listas(std::string ruta,std::list<Pelicula> &lista_peliculas
 	}
 	archivo_leer.close();
 }
+
+// Estas dos funciones irian a carga listas que va a cambiar
+// de nombre a operaciones listas
+/*
+void Carga_listas::mostrar_actores(list <std::string> g){ 
+    list <std::string> :: iterator it; 
+    for(it = g.begin(); it != g.end(); ++it){
+        std::cout << *it << " " << std::endl; 
+    }
+    cout << '\n'; 
+}
+*/
+void Carga_listas::mostrar_peliculas(std::list <Pelicula> g){ 
+    std::list <Pelicula> :: iterator it; 
+    std::list <std::string> lista_actual;
+
+    for(it = g.begin(); it != g.end(); ++it){
+        std::cout << it->obtener_titulo() << " " << it->obtener_genero() << " " << it->obtener_puntaje() << " " << it->obtener_director() << std::endl;
+        lista_actual = it->obtener_lista_actores();
+
+        std::list <std::string> :: iterator it_actor; 
+	    for(it_actor = lista_actual.begin(); it_actor != lista_actual.end(); ++it_actor){
+	        std::cout << *it_actor << " " << std::endl; 
+	    }
+	    std::cout << '\n';     
+    }
+    
+    std::cout << '\n'; 
+}
