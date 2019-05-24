@@ -4,28 +4,26 @@ Comedia negra
 Gaston_Duprat
 Luis_Brandoni Lucas_Aranda Raúl_Arévalo Guillermo_Francella Andrea_Frigerio Mahmoud_Azim Daniela_Katz
 
-I, como Icaro
-Drama Suspenso
+I,_como_Icaro
+Drama_Suspenso
 10
 Henri_Verneuil
 Yves_Montand Michel_Albertini Roland_Amstutz Jean-Pierre_Bagot
 
-Jack and Jill
+Jack_and_Jill
 Comedia
 3
 Dennis_Dugan
 Adam_Sandler
 
-Carmen y Lola
+Carmen_y_Lola
 Drama
 7
 Al_Pacino
-Katie_HolmesArantxa Echevarria Zaira_Romero Rosy_Rodriguez Rafaela_Leon Carolina_Yuste
+Katie_Holmes Arantxa_Echevarria Zaira_Romero Rosy_Rodriguez Rafaela_Leon Carolina_Yuste
 
-Cementerio de animales
+Cementerio_de_animales
 Terror
 7
 Kevin_Kolsch
 Jason_Clarke Amy_Seimetz John_Lithgow
-
-PROBANDOOOO
