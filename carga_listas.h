@@ -11,6 +11,9 @@ class Carga_listas{
 		//Post: Carga la lista pelicula con los datos del archivo de ruta
     	Carga_listas(std::string ruta, std::list<Pelicula> &lista_peliculas);
 
+    	//Mostrar listas de peliculas
+    	//Pre:lista cargada con peliculas
+    	//Post: Muestra por pantalla los contenido en la lista pasada por parametro
     	void mostrar_peliculas(std::list<Pelicula> g);
 };
 

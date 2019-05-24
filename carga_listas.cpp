@@ -30,17 +30,6 @@ Carga_listas::Carga_listas(std::string ruta,std::list<Pelicula> &lista_peliculas
 	archivo_leer.close();
 }
 
-// Estas dos funciones irian a carga listas que va a cambiar
-// de nombre a operaciones listas
-/*
-void Carga_listas::mostrar_actores(list <std::string> g){ 
-    list <std::string> :: iterator it; 
-    for(it = g.begin(); it != g.end(); ++it){
-        std::cout << *it << " " << std::endl; 
-    }
-    cout << '\n'; 
-}
-*/
 void Carga_listas::mostrar_peliculas(std::list <Pelicula> g){ 
     std::list <Pelicula> :: iterator it; 
     std::list <std::string> lista_actual;

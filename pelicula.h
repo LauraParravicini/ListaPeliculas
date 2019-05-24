@@ -28,6 +28,7 @@ class Pelicula{
 		std::string obtener_titulo();
 
 		//Asignar titulo
+		//Post: asigna al atributo titulo el parametro recibido
 		void asignar_titulo(std::string titulo);
 
 		//Obtener género
@@ -35,6 +36,7 @@ class Pelicula{
 		std::string obtener_genero();
 
 		//Asignar genero
+		//Post: asigna al atributo genero el parametro recibido
 		void asignar_genero(std::string genero);		
 
 		//Obtener puntaje
@@ -42,6 +44,7 @@ class Pelicula{
 		int obtener_puntaje();
 
 		//Asignar puntaje
+		//Post: asigna al atributo puntaje el parametro recibido
 		void asignar_puntaje(int puntaje);
 
 		//Obtener director
@@ -49,6 +52,7 @@ class Pelicula{
 		std::string obtener_director();
 
 		//Asignar director
+		//Post: asigna al atributo director el parametro recibido
 		void asignar_director(std::string director);
 
 		//Asignar lista de actores

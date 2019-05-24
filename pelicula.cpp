@@ -1,13 +1,7 @@
 #include "pelicula.h"
 
 Pelicula::Pelicula(){}
-/*
-std::string titulo;
-std::string genero;
-int puntaje;
-std::string director;
-std::list<std::string> lista_actores;
-*/
+
 //Constructor con parámetros
 Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje, 
 				   std::string director, std::list<std::string> lista_actores){
@@ -24,6 +18,8 @@ std::string Pelicula::obtener_titulo(){
 	return titulo;
 }
 
+//Asignar titulo
+//Post: asigna al atributo titulo el parametro recibido
 void Pelicula::asignar_titulo(std::string titulo){
 	this->titulo = titulo;
 }
@@ -34,7 +30,8 @@ std::string Pelicula::obtener_genero(){
 	return genero;
 }
 
-
+//Asignar genero
+//Post: asigna al atributo genero el parametro recibido
 void Pelicula::asignar_genero(std::string genero){
 	this->genero = genero;
 }
@@ -45,7 +42,8 @@ int Pelicula::obtener_puntaje(){
 	return puntaje;
 }
 
-
+//Asignar puntaje
+//Post: asigna al atributo puntaje el parametro recibido
 void Pelicula::asignar_puntaje(int puntaje){
 	this->puntaje = puntaje;
 }
@@ -56,7 +54,8 @@ std::string Pelicula::obtener_director(){
 	return director;
 }
 
-
+//Asignar director
+//Post: asigna al atributo director el parametro recibido
 void Pelicula::asignar_director(std::string director){
 	this->director = director;
 }
