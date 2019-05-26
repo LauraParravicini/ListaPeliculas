@@ -1,29 +1,29 @@
 Avengers
 Accion
 8
-Stan_Lee
-Thor_Nado Tony_Stark Bruce_Banner Natasha_Romanoff Steve_Rogers Clint_Burton ;
+Stan Lee
+Thor_Nado Tony_Stark Bruce_Banner Natasha_Romanoff Steve_Rogers Clint_Burton
 
-El_secreto_de_sus_ojos
+El secreto de sus ojos
 Policial
 10
-Juan_Jose_Campanella
-Guillermo_Francella Ricardo_Darin Soledad_Villamil ;
+Juan Jose Campanella
+Guillermo_Francella Ricardo_Darin Soledad_Villamil
 
-Disaster_Movie
+Disaster Movie
 Comedia
 1
-Jason_Friedberg
-Matt_Lanter Nicole_Parker Ike_Barinholtz Tony_Cox Aby_Spigner ;
+Jason Friedberg
+Matt_Lanter Nicole_Parker Ike_Barinholtz Tony_Cox Aby_Spigner
 
-Jack_and_Jill
+Jack and Jill
 Comedia
 3
-Dennis_Dugan
-Adam_Sandler ;
+Dennis Dugan
+Adam_Sandler
 
-Carmen_y_Lola
+Carmen y Lola
 Drama
 7
-Al_Pacino
-Katie_Holmes Arantxa_Echevarria Zaira_Romero Rosy_Rodriguez Rafaela_Leon Carolina_Yuste ;
+Al Pacino
+Katie_Holmes Arantxa_Echevarria Zaira_Romero Rosy_Rodriguez Rafaela_Leon Carolina_Yuste

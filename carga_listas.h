@@ -4,26 +4,21 @@
 #include <fstream>
 #include "pelicula.h"
 
+const std::string VACIO = "                                                  ";
+
 class Carga_listas{
 	//Métodos:
 	public:
-		//Constructor
-		Carga_listas();
-
 		//Constructor con parámetros
-    Carga_listas(std::string ruta, std::list<Pelicula> &lista_peliculas);
+    Carga_listas(Carga_listas lista, std::string ruta, std::list<Pelicula> &lista_peliculas);
 
-    //Mostrar listas de peliculas
-		//Descripción: Procedimiento que recibe una lista de peliculas y las muestra por pantalla
-    //Pre: Procedimiento que recibe objeto de clase Lista
-    //Post: Muestra por pantalla los contenido en la lista pasada por parametro
-    void mostrar_peliculas(std::list<Pelicula> g);
-
-		//Generar recomendaciones de peliculas
-		//Descripción: Función que recibe listas de peliculas vistas y no vistas y  devuelve una tercera con las recomendadas
-		//Pre: Función que recibe objetos de clase Lista
-		//Post: Devuelve un objeto de clase Lista
-		std::list<Pelicula> generar_recomendaciones(std::list<Pelicula> vistas, std::list<Pelicula> no_vistas);
+	private:
+		//Separar actores
+		//Descripción: Procedimiento que recibe en una cadena de caracter todos los nombres de los actores de una pelica y una lista, y separa los
+		//             nombres de la cadena y los guarda la lista recibida
+		//Pre: Procedimiento que recibe una cadena de caracter con todos los nombres de los actores y objeto de clase lista
+		//Post: Separa los nombres de la cadena y los guarda en el objeto de clase lista recibido
+		void separar_actores(std::string actores, std::list<std::string> &lista_actores);
 };
 
 #endif
