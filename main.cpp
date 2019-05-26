@@ -13,7 +13,7 @@ int main(){
   Carga_listas lista_no_vistas(lista_no_vistas, RUTA_NO_VISTAS, lista_peliculas_no_vistas);
 	Menu menu;
 
-	menu.inicializar(menu, lista_peliculas_vistas, lista_peliculas_no_vistas);
+	menu.inicializar(lista_peliculas_vistas, lista_peliculas_no_vistas);
 
 	return 0;
 }

@@ -11,11 +11,11 @@ class Menu{
     Menu();
 
     //Inicializar menu
-    //Descripción: Procedimiento que recibe un menu y las listas de peliculas vistas y no vistas por el usuario. Además muestra por pantalla las
+    //Descripción: Procedimiento que recibe las listas de peliculas vistas y no vistas por el usuario. Además muestra por pantalla las
     //             opciones del menu, pide al usuario que ingrese una opción y la ejecuta
-    //Pre: Procedimiento que recibe un objeto de clase Menu, dos de clase Carga_listas y dos de clase Lista
+    //Pre: Procedimiento que recibe dos objetos de clase Carga_listas y dos de clase Lista
     //Post: Muestra por pantalla las opciones del menu, pide al usuario que ingrese una opción y la ejecuta
-    void inicializar(Menu menu, std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas);
+    void inicializar(std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas);
 
     private:
     //Mostrar listas de peliculas
@@ -25,7 +25,7 @@ class Menu{
     void mostrar_peliculas(std::list<Pelicula> g);
 
     //Generar recomendaciones de peliculas
-		//Descripción: Función que recibe listas de peliculas vistas y no vistas y  devuelve una tercera con las recomendadas
+		//Descripción: Función que recibe listas de peliculas vistas y no vistas y devuelve una tercera con las recomendadas
 		//Pre: Función que recibe objetos de clase Lista
 		//Post: Devuelve un objeto de clase Lista
 		std::list<Pelicula> generar_recomendaciones(std::list<Pelicula> vistas, std::list<Pelicula> no_vistas);
@@ -34,12 +34,12 @@ class Menu{
     //Post: Imprime por pantalla las opciones del menu
     void mostrar();
 
-    //Inicializar menu
+    //Ejecutar opcion
     //Descripción: Procedimiento que recibe un valor representativo a la opción elegida por el usuario y las listas de peliculas vistas y no vistas por el
     //             usuario. Ejecuta la opción recibida
     //Pre: Procedimiento que recibe un entero representativo a la opción, dos de clase Carga_listas y dos de clase Lista
     //Post: Ejecuta la opción recibida
-    void opcion(Menu menu, int opcion, std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas);
+    void ejecutar_opcion(int opcion, std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas);
 };
 
 #endif

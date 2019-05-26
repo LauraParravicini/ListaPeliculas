@@ -2,13 +2,13 @@
 
 Menu::Menu(){}
 
-void Menu::inicializar(Menu menu, std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas){
+void Menu::inicializar(std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas){
   int opcion = 0;
 
   while(opcion != 4){
-    menu.mostrar();
+    mostrar();
     std::cin>>opcion;
-    menu.opcion(menu, opcion, lista_peliculas_vistas, lista_peliculas_no_vistas);
+    ejecutar_opcion(opcion, lista_peliculas_vistas, lista_peliculas_no_vistas);
   }
 }
 
@@ -20,22 +20,22 @@ void Menu::mostrar(){
   std::cout<<"4- Salir"<<std::endl<<std::endl;
 }
 
-void Menu::opcion(Menu menu, int opcion, std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas){
+void Menu::ejecutar_opcion(int opcion, std::list<Pelicula> lista_peliculas_vistas, std::list<Pelicula> lista_peliculas_no_vistas){
   switch(opcion){
     case 1:
       std::cout<<std::endl<<"----------------VISTAS----------------"<<std::endl<<std::endl;
-      menu.mostrar_peliculas(lista_peliculas_vistas);
+      mostrar_peliculas(lista_peliculas_vistas);
     break;
 
     case 2:
       std::cout<<std::endl<<"----------------NO VISTAS----------------"<<std::endl<<std::endl;
-      menu.mostrar_peliculas(lista_peliculas_no_vistas);
+      mostrar_peliculas(lista_peliculas_no_vistas);
     break;
 
     case 3:{
-      std::list<Pelicula> lista_peliculas_recomendadas = menu.generar_recomendaciones(lista_peliculas_vistas, lista_peliculas_no_vistas);
+      std::list<Pelicula> lista_peliculas_recomendadas = generar_recomendaciones(lista_peliculas_vistas, lista_peliculas_no_vistas);
       std::cout<<std::endl<<"----------------RECOMENDADAS----------------"<<std::endl<<std::endl;
-      menu.mostrar_peliculas(lista_peliculas_recomendadas);
+      mostrar_peliculas(lista_peliculas_recomendadas);
     }break;
 
     case 4:
