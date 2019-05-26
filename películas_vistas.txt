@@ -2,28 +2,28 @@ Avengers
 Accion
 8
 Stan_Lee
-Thor_Nado Tony_Stark Bruce_Banner Natasha_Romanoff Steve_Rogers Clint_Burton
-
-Advengers_Age_of_Ultron
-Accion
-7
-Stan_Lee
-Thor_Nado Tony_Stark Bruce_Banner Natasha_Romanoff Steve_Rogers Clint_Burton El_Ultron
-
-Guardianes_de_la_galaxia
-Accion
-8
-Stan_Lee
-Chris_Pratt Rocket_Mapache Yosoy_Groot Gamora_Verde Rax_Gris
+Thor_Nado Tony_Stark Bruce_Banner Natasha_Romanoff Steve_Rogers Clint_Burton ;
 
 El_secreto_de_sus_ojos
 Policial
 10
 Juan_Jose_Campanella
-Guillermo_Francella Ricardo_Darin Soledad_Villamil
+Guillermo_Francella Ricardo_Darin Soledad_Villamil ;
 
 Disaster_Movie
-Comedy
+Comedia
 1
 Jason_Friedberg
-Matt_Lanter Nicole_Parker Ike_Barinholtz Tony_Cox Aby_Spigner
+Matt_Lanter Nicole_Parker Ike_Barinholtz Tony_Cox Aby_Spigner ;
+
+Jack_and_Jill
+Comedia
+3
+Dennis_Dugan
+Adam_Sandler ;
+
+Carmen_y_Lola
+Drama
+7
+Al_Pacino
+Katie_Holmes Arantxa_Echevarria Zaira_Romero Rosy_Rodriguez Rafaela_Leon Carolina_Yuste ;

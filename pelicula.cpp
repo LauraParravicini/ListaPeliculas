@@ -2,9 +2,7 @@
 
 Pelicula::Pelicula(){}
 
-//Constructor con parámetros
-Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje, 
-				   std::string director, std::list<std::string> lista_actores){
+Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje, std::string director, std::list<std::string> lista_actores){
 	titulo = nombre;
 	this->genero = genero;
 	this->puntaje = puntaje;
@@ -12,64 +10,63 @@ Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje,
 	this->lista_actores = lista_actores;
 }
 
-//Obtener título
-//Post: Devuelve los datos del atributo titulo de la clase
 std::string Pelicula::obtener_titulo(){
 	return titulo;
 }
 
-//Asignar titulo
-//Post: asigna al atributo titulo el parametro recibido
 void Pelicula::asignar_titulo(std::string titulo){
 	this->titulo = titulo;
 }
 
-//Obtener género
-//Post: Devuelve los datos del atributo genero de la clase
 std::string Pelicula::obtener_genero(){
 	return genero;
 }
 
-//Asignar genero
-//Post: asigna al atributo genero el parametro recibido
 void Pelicula::asignar_genero(std::string genero){
 	this->genero = genero;
 }
 
-//Obtener puntaje
-//Post: Devuelve el valor del atributo puntaje de la clase
 int Pelicula::obtener_puntaje(){
 	return puntaje;
 }
 
-//Asignar puntaje
-//Post: asigna al atributo puntaje el parametro recibido
 void Pelicula::asignar_puntaje(int puntaje){
 	this->puntaje = puntaje;
 }
 
-//Obtener director
-//Post: Devuelve los datos del atributo director de la clase
 std::string Pelicula::obtener_director(){
 	return director;
 }
 
-//Asignar director
-//Post: asigna al atributo director el parametro recibido
 void Pelicula::asignar_director(std::string director){
 	this->director = director;
 }
 
-//Asignar lista de actores
-//Descripción: Recibe una dirección de una lista de actore y la asigna al puntero del atributo lista_actores de la clase
-//Pre: Recibe un puntero de la clase Lista con la dirección de una lista de actores
-//Post: Asigna la direccón recibida al puntero de clase lista del atributo lista_actores de la clase
 void Pelicula::asignar_lista_actores(std::list<std::string> lista_actores){
 	this->lista_actores = lista_actores;
 }
 
-//Obtener lista actores
-//Post: Devuelve el valor de la dirección de memoria del atributo lista_actores de la clase
 std::list<std::string> Pelicula::obtener_lista_actores(){
 	return lista_actores;
+}
+
+bool Pelicula::es_recomendable(Pelicula no_vista){
+	if(genero == no_vista.obtener_genero() )
+		if( (no_vista.obtener_puntaje() >= MINIMO_PARA_RECOMENDAR) || (director == no_vista.obtener_director() ) || (coinciden_actores(no_vista.obtener_lista_actores() ) ) )
+			return true;
+
+	return false;
+}
+
+bool Pelicula::coinciden_actores(std::list<std::string> lista_actores){
+	int coincidencia = 0;
+	std::list <std::string> :: iterator it_uno;
+	std::list <std::string> :: iterator it_dos;
+
+	for(it_uno = this->lista_actores.begin(); it_uno != this->lista_actores.end(); ++it_uno)
+		for(it_dos = lista_actores.begin(); it_dos != lista_actores.end(); ++it_dos)
+			if(*it_uno == *it_dos)
+				coincidencia++;
+
+	return coincidencia;
 }

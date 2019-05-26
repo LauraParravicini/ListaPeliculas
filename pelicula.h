@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <list>
-#include <iterator>
-#include <string>
+
+const int MINIMO_PARA_RECOMENDAR = 7;
 
 class Pelicula{
 	//Atributos
@@ -37,7 +37,7 @@ class Pelicula{
 
 		//Asignar genero
 		//Post: asigna al atributo genero el parametro recibido
-		void asignar_genero(std::string genero);		
+		void asignar_genero(std::string genero);
 
 		//Obtener puntaje
 		//Post: Devuelve el valor del atributo puntaje de la clase
@@ -65,6 +65,19 @@ class Pelicula{
 		//Post: Devuelve el valor de la dirección de memoria del atributo lista_actores de la clase
 		std::list<std::string> obtener_lista_actores();
 
+		//Es una pelicula recomendable?
+		//Descripción: Función que recibe una pelicula no vista por el usuario y devuelve si la pelicula recibida es recomendable o no
+		//Pre: Función que recibe un objeto clase Pelicula
+		//Post: Devuelve como resultado de la función si la pelicula recibida es recomendable o no
+		bool es_recomendable(Pelicula pelicula_no_vista);
+
+		private:
+		//Hay coincidencia de actores?
+		//Descripción: Función que recibe una lista de actores de una pelicula no vista por el usuario y devuelve si hay coincidencia o no de actores
+		//             de alguna ya vista
+		//Pre: Función que recibe un objeto clase Lista que contiene actores
+		//Post: Devuelve como resultado de la función si hay coincidencia o no de actores
+		bool coinciden_actores(std::list<std::string> lista_actores);
 };
 
-#endif 
+#endif
