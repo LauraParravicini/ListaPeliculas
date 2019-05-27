@@ -33,6 +33,10 @@ class Lista{
 
     //Destructor
     ~Lista();
+
+    Tipo* obtener_dato(unsigned pos);
+   	private:
+   		Nodo<Tipo>* obtener_nodo(unsigned pos);
 };
 
 template class Lista<std::string>;

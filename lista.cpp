@@ -37,3 +37,20 @@ Lista<Tipo>::~Lista(){
     while(!esta_vacia())
         eliminar_dato();
 }
+
+template<typename Tipo>
+Nodo<Tipo>* Lista<Tipo>::obtener_nodo(unsigned pos){
+    Nodo<Tipo>* aux = primero;
+    unsigned i = 1;
+    while (i < pos) {
+        aux = aux->obtener_siguiente();
+        i++;
+    }
+    return aux;
+}
+
+template<typename Tipo>
+Tipo* Lista<Tipo>::obtener_dato(unsigned pos){
+    Nodo<Tipo>* paux = obtener_nodo(pos);
+    return paux->obtener_dato();
+}
