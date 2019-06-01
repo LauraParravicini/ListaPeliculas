@@ -1,15 +1,17 @@
 #ifndef LISTA_H
 #define LISTA_H
 
-#include "pelicula.h"
 #include "nodo.h"
+
+const int INICIO = 1;
 
 template<typename Tipo>
 class Lista{
   //Atributos
   private:
     Nodo<Tipo>* primero;
-    unsigned int tam;
+    Nodo<Tipo>* ultimo;
+    int tam;
 
   //Métodos
   public:
@@ -20,11 +22,19 @@ class Lista{
     //Post: Función que devuelve un dato booleano verificando si la lista está vacía o no
     bool esta_vacia();
 
+    //Obtener tamaño
+    //Post: Devuelve el valor del atributo tam de la clase
+    int obtener_tam();
+
     //Agregar dato
     //Descripción: Procedimiento que recibe una dirección de memoria de un dato y la agrega a la lista
     //Pre: Procedimiento que recibe un puntero a un dato
     //Post: Agrega el dato a la lista
-    void agregar_dato(Tipo* dato);
+    void agregar_dato(Tipo dato);
+
+    //Obtener dato//////////////////////////////////////////////////ACOMODARRRR
+    //Pre: Posicion debe ser menor que tam
+    Tipo obtener_dato(int posicion);
 
     //Eliminar un dato
     //Descripción: Procedimiento que elimina el primer dato de la lista
@@ -32,16 +42,10 @@ class Lista{
     void eliminar_dato();
 
     //Destructor
-    ~Lista();
+    //~Lista();
 
-    Tipo* obtener_dato(unsigned pos);
-   	private:
-   		Nodo<Tipo>* obtener_nodo(unsigned pos);
+    //Liberar memoria (reemplazo de destructor)
+    void liberar();
 };
-
-template class Lista<std::string>;
-template class Lista<std::string*>;
-template class Lista<Pelicula>;
-template class Lista<Pelicula*>;
 
 #endif

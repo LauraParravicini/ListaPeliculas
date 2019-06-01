@@ -2,7 +2,7 @@
 
 Pelicula::Pelicula(){}
 
-Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje, std::string director, std::list<std::string> lista_actores){
+Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje, std::string director, Lista<std::string> lista_actores){
 	titulo = nombre;
 	this->genero = genero;
 	this->puntaje = puntaje;
@@ -42,12 +42,29 @@ void Pelicula::asignar_director(std::string director){
 	this->director = director;
 }
 
-void Pelicula::asignar_lista_actores(std::list<std::string> lista_actores){
+void Pelicula::asignar_lista_actores(Lista<std::string> lista_actores){
 	this->lista_actores = lista_actores;
 }
 
-std::list<std::string> Pelicula::obtener_lista_actores(){
+Lista<std::string> Pelicula::obtener_lista_actores(){
 	return lista_actores;
+}
+
+void Pelicula::imprimir_datos_pelicula(){
+	std::cout<<"Título: "<<obtener_titulo()<<std::endl;
+	std::cout<<"Género: "<<obtener_genero()<<std::endl;
+	std::cout<<"Puntaje: "<<obtener_puntaje()<<std::endl;
+	std::cout<<"Director: "<<obtener_director()<<std::endl;
+
+	int posicion = INICIO;
+	int cantidad_actores = lista_actores.obtener_tam();
+
+	std::cout<<"Reparto:";
+	while(posicion <= cantidad_actores){
+		std::cout<<" "<<lista_actores.obtener_dato(posicion)<<" ";
+		posicion++;
+	}
+	std::cout<<std::endl<<std::endl;
 }
 
 bool Pelicula::es_recomendable(Pelicula no_vista){
@@ -58,15 +75,20 @@ bool Pelicula::es_recomendable(Pelicula no_vista){
 	return false;
 }
 
-bool Pelicula::coinciden_actores(std::list<std::string> lista_actores){
+bool Pelicula::coinciden_actores(Lista<std::string> lista_actores){
 	int coincidencia = 0;
-	std::list <std::string> :: iterator it_uno;
-	std::list <std::string> :: iterator it_dos;
+	int posicion_vista = INICIO;
+	int cantidad_actores_vista = this->lista_actores.obtener_tam();
+	int posicion_no_vista = INICIO;
+	int cantidad_actores_no_vista = this->lista_actores.obtener_tam();
 
-	for(it_uno = this->lista_actores.begin(); it_uno != this->lista_actores.end(); ++it_uno)
-		for(it_dos = lista_actores.begin(); it_dos != lista_actores.end(); ++it_dos)
-			if(*it_uno == *it_dos)
-				coincidencia++;
-
+	while(posicion_vista <= cantidad_actores_vista){
+		while(posicion_no_vista <= cantidad_actores_no_vista){
+				if(this->lista_actores.obtener_dato(posicion_vista) == lista_actores.obtener_dato(posicion_no_vista) )
+					coincidencia++;
+				posicion_no_vista++;
+		}
+		posicion_vista++;
+	}
 	return coincidencia;
 }

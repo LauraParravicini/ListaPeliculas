@@ -1,6 +1,8 @@
 #include "carga_listas.h"
 
-Carga_listas::Carga_listas(Carga_listas lista, std::string ruta,std::list<Pelicula> &lista_peliculas){
+Carga_listas::Carga_listas(){}
+
+Carga_listas::Carga_listas(Carga_listas lista, std::string ruta,Lista<Pelicula> &lista_peliculas){
 	std::ifstream archivo_leer;
 	archivo_leer.open(ruta);
 	std::string titulo, puntaje_str, genero, director, actores, buffer;
@@ -8,7 +10,7 @@ Carga_listas::Carga_listas(Carga_listas lista, std::string ruta,std::list<Pelicu
 
 	if(archivo_leer.is_open()){
 		while(!archivo_leer.eof()){
-			std::list<std::string> lista_actores;
+			Lista<std::string> lista_actores;
 			getline(archivo_leer,titulo);
 			getline(archivo_leer,genero);
 			getline(archivo_leer,puntaje_str);
@@ -18,7 +20,7 @@ Carga_listas::Carga_listas(Carga_listas lista, std::string ruta,std::list<Pelicu
 			lista.separar_actores(actores, lista_actores);
 
 			Pelicula pelicula_leida(titulo, genero, puntaje, director, lista_actores);
-			lista_peliculas.push_back(pelicula_leida);
+			lista_peliculas.agregar_dato(pelicula_leida);
 
 			getline(archivo_leer,buffer);
 		}
@@ -29,7 +31,7 @@ Carga_listas::Carga_listas(Carga_listas lista, std::string ruta,std::list<Pelicu
 	archivo_leer.close();
 }
 
-void Carga_listas::separar_actores(std::string actores, std::list<std::string> &lista_actores){
+void Carga_listas::separar_actores(std::string actores, Lista<std::string> &lista_actores){
 	std::string actor = VACIO;
 	int tam = actor.length();
 	int j = 0;
@@ -45,9 +47,25 @@ void Carga_listas::separar_actores(std::string actores, std::list<std::string> &
 		}
 		else{
 			actor.erase(tam-(tam-j));
-			lista_actores.push_back(actor);
+			lista_actores.agregar_dato(actor);
 			j=0;
 			actor = VACIO;
 		}
 	}
+	actor.erase(tam-(tam-j));
+	lista_actores.agregar_dato(actor);
+	j=0;
+	actor = VACIO;
+}
+
+void Carga_listas::imprimir_lista_cargada(Lista<Pelicula> lista_peliculas){
+  int posicion = INICIO;
+  int cantidad_nodos = lista_peliculas.obtener_tam();
+  Pelicula aux;
+
+  while(posicion <= cantidad_nodos){
+    aux = lista_peliculas.obtener_dato(posicion);
+    aux.imprimir_datos_pelicula();
+    posicion++;
+  }
 }

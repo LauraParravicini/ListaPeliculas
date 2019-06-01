@@ -2,7 +2,7 @@
 #define PELICULA_H
 
 #include <iostream>
-#include <list>
+#include "lista.h"
 
 const int MINIMO_PARA_RECOMENDAR = 7;
 
@@ -13,7 +13,7 @@ class Pelicula{
 		std::string genero;
 		int puntaje;
 		std::string director;
-		std::list<std::string> lista_actores;
+		Lista<std::string> lista_actores;
 
 	//Métodos
 	public:
@@ -21,7 +21,7 @@ class Pelicula{
 		Pelicula();
 
 		//Constructor con parámetros
-		Pelicula(std::string nombre, std::string genero, int puntaje, std::string director, std::list<std::string> lista_actores);
+		Pelicula(std::string nombre, std::string genero, int puntaje, std::string director, Lista<std::string> lista_actores);
 
 		//Obtener título
 		//Post: Devuelve los datos del atributo titulo de la clase
@@ -59,11 +59,15 @@ class Pelicula{
 		//Descripción: Recibe una dirección de una lista de actores y la asigna al puntero del atributo lista_actores de la clase
 		//Pre: Recibe un puntero de la clase Lista con la dirección de una lista de actores
 		//Post: Asigna la direccón recibida al puntero de clase lista del atributo lista_actores de la clase
-		void asignar_lista_actores(std::list<std::string> lista_actores);
+		void asignar_lista_actores(Lista<std::string> lista_actores);
 
 		//Obtener lista actores
 		//Post: Devuelve el valor de la dirección de memoria del atributo lista_actores de la clase
-		std::list<std::string> obtener_lista_actores();
+		Lista<std::string> obtener_lista_actores();
+
+		//Imprimir datos de la pelicula
+		//Post: Imprime por pantalla los datos de la pelicula
+		void imprimir_datos_pelicula();
 
 		//Es una pelicula recomendable?
 		//Descripción: Función que recibe una pelicula no vista por el usuario y devuelve si la pelicula recibida es recomendable o no
@@ -71,13 +75,12 @@ class Pelicula{
 		//Post: Devuelve como resultado de la función si la pelicula recibida es recomendable o no
 		bool es_recomendable(Pelicula pelicula_no_vista);
 
-		private:
 		//Hay coincidencia de actores?
 		//Descripción: Función que recibe una lista de actores de una pelicula no vista por el usuario y devuelve si hay coincidencia o no de actores
 		//             de alguna ya vista
 		//Pre: Función que recibe un objeto clase Lista que contiene actores
 		//Post: Devuelve como resultado de la función si hay coincidencia o no de actores
-		bool coinciden_actores(std::list<std::string> lista_actores);
+		bool coinciden_actores(Lista<std::string> lista_actores);
 };
 
 #endif
