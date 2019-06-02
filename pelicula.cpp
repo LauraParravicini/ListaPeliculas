@@ -7,7 +7,7 @@ Pelicula::Pelicula(std::string nombre, std::string genero, int puntaje, std::str
 	this->genero = genero;
 	this->puntaje = puntaje;
 	this->director = director;
-	this->lista_actores = lista_actores;
+	this->lista_actores.copiar(lista_actores);
 }
 
 std::string Pelicula::obtener_titulo(){
@@ -43,7 +43,7 @@ void Pelicula::asignar_director(std::string director){
 }
 
 void Pelicula::asignar_lista_actores(Lista<std::string> lista_actores){
-	this->lista_actores = lista_actores;
+	this->lista_actores.copiar(lista_actores);
 }
 
 Lista<std::string> Pelicula::obtener_lista_actores(){

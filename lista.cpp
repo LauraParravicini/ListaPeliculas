@@ -17,6 +17,16 @@ bool Lista<Tipo>::esta_vacia(){
 }
 
 template<typename Tipo>
+Nodo<Tipo>* Lista<Tipo>::obtener_primero(){
+    return primero;
+}
+
+template<typename Tipo>
+Nodo<Tipo>* Lista<Tipo>::obtener_ultimo(){
+    return ultimo;
+}
+
+template<typename Tipo>
 int Lista<Tipo>::obtener_tam(){
   return tam;
 }
@@ -73,4 +83,11 @@ void Lista<Tipo>::liberar(){
     while(!esta_vacia() ){
         eliminar_dato();
     }
+}
+
+template<typename Tipo>
+void Lista<Tipo>::copiar(Lista<Tipo> lista){
+  primero = lista.obtener_primero();
+  ultimo = lista.obtener_ultimo();
+  tam = lista.obtener_tam();
 }

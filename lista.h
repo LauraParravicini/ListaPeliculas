@@ -22,6 +22,10 @@ class Lista{
     //Post: Función que devuelve un dato booleano verificando si la lista está vacía o no
     bool esta_vacia();
 
+    Nodo<Tipo>* obtener_primero();
+
+    Nodo<Tipo>* obtener_ultimo();
+
     //Obtener tamaño
     //Post: Devuelve el valor del atributo tam de la clase
     int obtener_tam();
@@ -32,14 +36,19 @@ class Lista{
     //Post: Agrega el dato a la lista
     void agregar_dato(Tipo dato);
 
-    //Obtener dato//////////////////////////////////////////////////ACOMODARRRR
-    //Pre: Posicion debe ser menor que tam
+    //Obtener dato
+    //Descripción: Función que recibe un valor representativo a una posición menor o igual que el tamaño de la lista y devuelve el dato alojado en
+    //             dicha posición
+    //Pre: Función que recibe un entero representativo a una posición de la lista (posicion <= tam)
+    //Post: Devuelve el dato alojado en el nodo de dicha posición recibida
     Tipo obtener_dato(int posicion);
 
     //Eliminar un dato
     //Descripción: Procedimiento que elimina el primer dato de la lista
     //Post: El primer dato es eliminado de la lista
     void eliminar_dato();
+
+    void copiar(Lista<Tipo> lista);
 
     //Destructor
     //~Lista();

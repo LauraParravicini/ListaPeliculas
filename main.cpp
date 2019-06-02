@@ -16,8 +16,8 @@ int main(){
 
 	menu.inicializar(lista_vistas, lista_peliculas_vistas, lista_no_vistas, lista_peliculas_no_vistas);
 
-	lista_peliculas_vistas.liberar();
-	lista_peliculas_no_vistas.liberar();
+	lista_vistas.liberar_lista_cargada(&lista_peliculas_vistas);
+	lista_no_vistas.liberar_lista_cargada(&lista_peliculas_no_vistas);
 
 	return 0;
 }
