@@ -13,7 +13,7 @@ class Carga_listas{
 		Carga_listas();
 
 		//Constructor con parámetros
-    	Carga_listas(Carga_listas lista, std::string ruta, Lista<Pelicula> &lista_peliculas);
+    Carga_listas(Carga_listas lista, std::string ruta, Lista<Pelicula> &lista_peliculas);
 
 		//Imprimir lista cargada
 		//Descripción: Procedimiento que recibe una lista de peliculas e imprime por pantalla los datos dentro de la misma

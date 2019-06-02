@@ -72,12 +72,6 @@ void Lista<Tipo>::eliminar_dato(){
     tam--;
 }
 
-/*template<typename Tipo>
-Lista<Tipo>::~Lista(){
-    while(!esta_vacia())
-        eliminar_dato();
-}*/
-
 template<typename Tipo>
 void Lista<Tipo>::liberar(){
     while(!esta_vacia() ){

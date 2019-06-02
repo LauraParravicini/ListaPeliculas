@@ -57,10 +57,7 @@ class Lista{
     //Post: Guarda en la lista los elementos de la lista parametro recibida
     void copiar(Lista<Tipo> lista);
 
-    //Destructor
-    //~Lista();
-
-    //Liberar memoria (reemplazo de destructor)
+    //Liberar memoria
     void liberar();
 };
 

@@ -36,7 +36,7 @@ class Pelicula{
 		std::string obtener_genero();
 
 		//Asignar genero
-		//Post: asigna al atributo genero el parametro recibido
+		//Post: Asigna al atributo genero el parametro recibido
 		void asignar_genero(std::string genero);
 
 		//Obtener puntaje
@@ -44,7 +44,7 @@ class Pelicula{
 		int obtener_puntaje();
 
 		//Asignar puntaje
-		//Post: asigna al atributo puntaje el parametro recibido
+		//Post: Asigna al atributo puntaje el parametro recibido
 		void asignar_puntaje(int puntaje);
 
 		//Obtener director
@@ -52,17 +52,17 @@ class Pelicula{
 		std::string obtener_director();
 
 		//Asignar director
-		//Post: asigna al atributo director el parametro recibido
+		//Post: Asigna al atributo director el parametro recibido
 		void asignar_director(std::string director);
 
 		//Asignar lista de actores
-		//Descripción: Recibe una dirección de una lista de actores y la asigna al puntero del atributo lista_actores de la clase
-		//Pre: Recibe un puntero de la clase Lista con la dirección de una lista de actores
-		//Post: Asigna la direccón recibida al puntero de clase lista del atributo lista_actores de la clase
+		//Descripción: Recibe una lista de actores y la asigna al atributo lista_actores de la clase
+		//Pre: Recibe un objeto de la clase Lista de cadena de caracteres
+		//Post: Asigna el objeto recibido al objeto de clase lista del atributo lista_actores de la clase
 		void asignar_lista_actores(Lista<std::string> lista_actores);
 
 		//Obtener lista actores
-		//Post: Devuelve el valor de la dirección de memoria del atributo lista_actores de la clase
+		//Post: Devuelve la lista del atributo lista_actores de la clase
 		Lista<std::string> obtener_lista_actores();
 
 		//Imprimir datos de la pelicula
@@ -76,8 +76,8 @@ class Pelicula{
 		bool es_recomendable(Pelicula pelicula_no_vista);
 
 		//Hay coincidencia de actores?
-		//Descripción: Función que recibe una lista de actores de una pelicula no vista por el usuario y devuelve 
-		//			   si hay coincidencia o no de actores de alguna ya vista
+		//Descripción: Función que recibe una lista de actores de una pelicula no vista por el usuario y devuelve
+		//			   		 si hay coincidencia o no de actores de alguna ya vista
 		//Pre: Función que recibe un objeto clase Lista que contiene actores
 		//Post: Devuelve como resultado de la función si hay coincidencia o no de actores
 		bool coinciden_actores(Lista<std::string> lista_actores);

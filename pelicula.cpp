@@ -56,14 +56,9 @@ void Pelicula::imprimir_datos_pelicula(){
 	std::cout << "Puntaje: " << obtener_puntaje() << std::endl;
 	std::cout << "Director: " << obtener_director() << std::endl;
 
-	int posicion = INICIO;
-	int cantidad_actores = lista_actores.obtener_tam();
-
 	std::cout << "Reparto: ";
-	while(posicion <= cantidad_actores){
-		std::cout << " " << lista_actores.obtener_dato(posicion) << " ";
-		posicion++;
-	}
+	for(int i = INICIO; i <= lista_actores.obtener_tam(); i++)
+		std::cout << " " << lista_actores.obtener_dato(i) << " ";
 	std::cout << std::endl << std::endl;
 }
 
@@ -78,18 +73,11 @@ bool Pelicula::es_recomendable(Pelicula no_vista){
 
 bool Pelicula::coinciden_actores(Lista<std::string> lista_actores){
 	int coincidencia = 0;
-	int posicion_vista = INICIO;
-	int cantidad_actores_vista = this->lista_actores.obtener_tam();
-	int posicion_no_vista = INICIO;
-	int cantidad_actores_no_vista = this->lista_actores.obtener_tam();
 
-	while(posicion_vista <= cantidad_actores_vista){
-		while(posicion_no_vista <= cantidad_actores_no_vista){
-				if( this->lista_actores.obtener_dato(posicion_vista) == lista_actores.obtener_dato(posicion_no_vista) )
+	for(int i = INICIO; i <= this->lista_actores.obtener_tam(); i++)
+		for(int j = INICIO; j <= this->lista_actores.obtener_tam(); j++)
+				if( this->lista_actores.obtener_dato(i) == lista_actores.obtener_dato(j) )
 					coincidencia++;
-				posicion_no_vista++;
-		}
-		posicion_vista++;
-	}
+
 	return coincidencia;
 }
