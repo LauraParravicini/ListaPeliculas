@@ -72,17 +72,17 @@ void Carga_listas::imprimir_lista_cargada(Lista<Pelicula> lista_peliculas){
 
 void Carga_listas::liberar_lista_cargada(Lista<Pelicula>* lista_peliculas){
 	int posicion = INICIO;
-  int cantidad_nodos = lista_peliculas->obtener_tam();
-  Pelicula aux_pelicula;
+	int cantidad_nodos = lista_peliculas->obtener_tam();
+	Pelicula aux_pelicula;
 	Lista<std::string> aux_lista_actores;
 
 
-  while(posicion <= cantidad_nodos){
-    aux_pelicula = (lista_peliculas->obtener_dato(posicion) );
-    aux_lista_actores = aux_pelicula.obtener_lista_actores();
+	while(posicion <= cantidad_nodos){
+	aux_pelicula = (lista_peliculas->obtener_dato(posicion) );
+	aux_lista_actores = aux_pelicula.obtener_lista_actores();
 		aux_lista_actores.liberar();
-    posicion++;
-  }
+	posicion++;
+	}
 
 	lista_peliculas->liberar();
 }

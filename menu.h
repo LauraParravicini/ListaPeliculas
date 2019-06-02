@@ -19,10 +19,10 @@ class Menu{
     void inicializar(Carga_listas lista_vistas, Lista<Pelicula> lista_peliculas_vistas, Carga_listas lista_no_vistas, Lista<Pelicula> lista_peliculas_no_vistas);
 
     //Generar recomendaciones de peliculas
-		//Descripción: Función que recibe listas de peliculas vistas y no vistas y devuelve una tercera con las recomendadas
-		//Pre: Función que recibe objetos de clase Lista
-		//Post: Devuelve un objeto de clase Lista
-		Lista<Pelicula> generar_recomendaciones(Lista<Pelicula> vistas, Lista<Pelicula> no_vistas);
+	//Descripción: Metodo que recibe listas de peliculas vistas y no vistas y devuelve una tercera con las recomendadas
+	//Pre: Metodo que recibe objetos de clase Lista
+	//Post: Devuelve un objeto de clase Lista
+	Lista<Pelicula> generar_recomendaciones(Lista<Pelicula> vistas, Lista<Pelicula> no_vistas);
 
     //Mostrar menu
     //Post: Imprime por pantalla las opciones del menu

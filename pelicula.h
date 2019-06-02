@@ -28,7 +28,7 @@ class Pelicula{
 		std::string obtener_titulo();
 
 		//Asignar titulo
-		//Post: asigna al atributo titulo el parametro recibido
+		//Post: Asigna al atributo titulo el parametro recibido
 		void asignar_titulo(std::string titulo);
 
 		//Obtener género
@@ -76,8 +76,8 @@ class Pelicula{
 		bool es_recomendable(Pelicula pelicula_no_vista);
 
 		//Hay coincidencia de actores?
-		//Descripción: Función que recibe una lista de actores de una pelicula no vista por el usuario y devuelve si hay coincidencia o no de actores
-		//             de alguna ya vista
+		//Descripción: Función que recibe una lista de actores de una pelicula no vista por el usuario y devuelve 
+		//			   si hay coincidencia o no de actores de alguna ya vista
 		//Pre: Función que recibe un objeto clase Lista que contiene actores
 		//Post: Devuelve como resultado de la función si hay coincidencia o no de actores
 		bool coinciden_actores(Lista<std::string> lista_actores);

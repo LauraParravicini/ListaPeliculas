@@ -17,13 +17,13 @@ class Nodo{
         Nodo(Tipo dato);
 
         //Asignar dato
-        //Descripción: Procedimiento que recibe una dirección de memoria de un dato y lo asigna al atributo dato de la clase
-        //Pre: Procedimiento que recibe un puntero a un dato
-        //Post: Asigna el puntero recibido al atributo dato de la clase
+        //Descripción: Procedimiento que recibe un dato y lo asigna al atributo dato de la clase
+        //Pre: Procedimiento que recibe un dato
+        //Post: Asigna el dato recibido al atributo dato de la clase
         void asignar_dato(Tipo dato);
 
         //Obtener dato
-        //Post: Devuelve un puntero con la dirección de memoria de un dato
+        //Post: Devuelve el dato que guarda dicho nodo
         Tipo obtener_dato();
 
         //Asignar siguente
