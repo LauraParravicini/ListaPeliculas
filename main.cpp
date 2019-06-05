@@ -3,11 +3,12 @@
 using namespace std;
 
 int main(){
-	Lista<Pelicula> lista_peliculas_vistas;
-  Lista<Pelicula> lista_peliculas_no_vistas;
+	Lista<Pelicula> vistas;
+  Lista<Pelicula> no_vistas;
+	Lista<Pelicula> recomendadas;
 	Menu menu;
 
-	menu.inicializar(lista_peliculas_vistas, lista_peliculas_no_vistas);
+	menu.inicializar(&vistas, &no_vistas, &recomendadas);
 
 	return 0;
 }

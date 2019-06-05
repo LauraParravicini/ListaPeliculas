@@ -1,5 +1,6 @@
 #include "nodo.h"
 #include "pelicula.h"
+#include <string>
 
 template class Nodo<std::string>;
 template class Nodo<Pelicula>;
@@ -7,22 +8,23 @@ template class Nodo<Pelicula>;
 
 template<typename Tipo>
 Nodo<Tipo>::Nodo(){
+    dato = NULL;
     asignar_siguiente(NULL);
 }
 
 template<typename Tipo>
-Nodo<Tipo>::Nodo(Tipo dato){
+Nodo<Tipo>::Nodo(Tipo* dato){
     this->dato = dato;
     asignar_siguiente(NULL);
 }
 
 template<typename Tipo>
-void Nodo<Tipo>::asignar_dato(Tipo dato){
+void Nodo<Tipo>::asignar_dato(Tipo* dato){
     this->dato = dato;
 }
 
 template<typename Tipo>
-Tipo Nodo<Tipo>::obtener_dato(){
+Tipo* Nodo<Tipo>::obtener_dato(){
     return dato;
 }
 
@@ -34,4 +36,9 @@ void Nodo<Tipo>::asignar_siguiente(Nodo* siguiente){
 template<typename Tipo>
 Nodo<Tipo>* Nodo<Tipo>::obtener_siguiente(){
     return siguiente;
+}
+
+template<typename Tipo>
+Nodo<Tipo>::~Nodo(){
+  delete dato;
 }

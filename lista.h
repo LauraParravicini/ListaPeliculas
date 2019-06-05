@@ -15,7 +15,7 @@ class Lista{
 
   //Métodos
   public:
-    //Cosntructor
+    //Constructor
     Lista();
 
     //Lista está vacía
@@ -35,17 +35,17 @@ class Lista{
     int obtener_tam();
 
     //Agregar dato
-    //Descripción: Procedimiento que recibe un dato y la agrega a la lista
-    //Pre: Procedimiento que recibe un dato
+    //Descripción: Procedimiento que recibe una dirección de memoria de un dato y lo agrega a la lista
+    //Pre: Procedimiento que recibe una dirección de memoria de un dato
     //Post: Agrega el dato a la lista
-    void agregar_dato(Tipo dato);
+    void agregar_dato(Tipo* dato);
 
     //Obtener dato
-    //Descripción: Metodo que recibe un valor representativo a una posición menor o igual
-    //             que el tamaño de la lista y mayor a 0, devolviendo el dato alojado en dicha posición
+    //Descripción: Metodo que recibe un valor representativo a una posición menor o igual que el tamaño de la lista y mayor a 0, devolviendo la
+    //             dirección de memoria del dato alojado en dicha posición
     //Pre: Función que recibe un entero representativo a una posición de la lista (posicion <= tam y posicion > 0)
-    //Post: Devuelve el dato alojado en el nodo de dicha posición recibida
-    Tipo obtener_dato(int posicion);
+    //Post: Devuelve la dirección de memoria del dato alojado en el nodo de dicha posición recibida
+    Tipo* obtener_dato(int posicion);
 
     //Eliminar un dato
     //Descripción: Procedimiento que elimina el primer dato de la lista
@@ -53,12 +53,13 @@ class Lista{
     void eliminar_dato();
 
     //Copiar lista
-    //Descripcion: Metodo que recibe una lista para copiar sus elementos para si misma.
-    //Post: Guarda en la lista los elementos de la lista parametro recibida
-    void copiar(Lista<Tipo> lista);
+    //Descripcion: Método que recibe dos direcciones de memoria de listas y guarda los elementos de la segunda lista recibida en la primera
+    //Pre: Método que recibe dos direcciones de memoria de listas
+    //Post: Guarda los elementos de la segunda lista recibida en la primera
+    void copiar(Lista<Tipo>* copia, Lista<Tipo>* original);
 
-    //Liberar memoria
-    void liberar();
+    //Destructor
+    ~Lista();
 };
 
 #endif

@@ -5,7 +5,7 @@ template<typename Tipo>
 class Nodo{
     //Atributos
     private:
-        Tipo dato;
+        Tipo* dato;
         Nodo* siguiente;
 
     //Métodos
@@ -14,17 +14,17 @@ class Nodo{
         Nodo();
 
         //Constructor con parametros
-        Nodo(Tipo dato);
+        Nodo(Tipo* dato);
 
         //Asignar dato
-        //Descripción: Procedimiento que recibe un dato y lo asigna al atributo dato de la clase
-        //Pre: Procedimiento que recibe un dato
+        //Descripción: Procedimiento que recibe una dirección de memoria a un dato y lo asigna al atributo dato de la clase
+        //Pre: Procedimiento que recibe una dirección de memoria a un dato
         //Post: Asigna el dato recibido al atributo dato de la clase
-        void asignar_dato(Tipo dato);
+        void asignar_dato(Tipo* dato);
 
         //Obtener dato
-        //Post: Devuelve el dato que guarda dicho nodo
-        Tipo obtener_dato();
+        //Post: Devuelve la dirección de memoria de un dato que guarda dicho nodo
+        Tipo* obtener_dato();
 
         //Asignar siguente
         //Descripción: Procedimiento que recibe la dirección de memoria de un nodo y la asigna al atributo siguiente de la clase
@@ -35,6 +35,8 @@ class Nodo{
         //Obtener siguiente
         //Post: Devuelve un puntero con la dirección de memoria del siguente nodo
         Nodo* obtener_siguiente();
+
+        ~Nodo();
 };
 
 #endif

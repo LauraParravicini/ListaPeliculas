@@ -2,7 +2,7 @@
 
 Menu::Menu(){}
 
-void Menu::inicializar(Lista<Pelicula> vistas, Lista<Pelicula> no_vistas){
+void Menu::inicializar(Lista<Pelicula>* vistas, Lista<Pelicula>* no_vistas, Lista<Pelicula>* recomendadas){
   cargar_listas(RUTA_VISTAS, vistas);
   cargar_listas(RUTA_NO_VISTAS, no_vistas);
 
@@ -13,7 +13,7 @@ void Menu::inicializar(Lista<Pelicula> vistas, Lista<Pelicula> no_vistas){
     std::cout << "Ingrese opción seleccionada: ";
     std::cin >> opcion;
     std::cout << std::endl << std::endl;
-    ejecutar_opcion(opcion, vistas, no_vistas);
+    ejecutar_opcion(opcion, vistas, no_vistas, recomendadas);
   }
 }
 
@@ -26,7 +26,7 @@ void Menu::mostrar(){
   std::cout << "--------------------------------------------" << std::endl << std::endl;
 }
 
-void Menu::ejecutar_opcion(int opcion, Lista<Pelicula> vistas, Lista<Pelicula> no_vistas){
+void Menu::ejecutar_opcion(int opcion, Lista<Pelicula>* vistas, Lista<Pelicula>* no_vistas, Lista<Pelicula>* recomendadas){
   switch(opcion){
     case 1:
       std::cout << std::endl << "-----------------VISTAS------------------" << std::endl << std::endl;
@@ -39,16 +39,14 @@ void Menu::ejecutar_opcion(int opcion, Lista<Pelicula> vistas, Lista<Pelicula> n
     break;
 
     case 3:{
-      Lista<Pelicula> recomendadas = generar_recomendaciones(vistas, no_vistas);
+
+      generar_recomendaciones(vistas, no_vistas, recomendadas);
       std::cout << std::endl << "----------------RECOMENDADAS----------------" << std::endl << std::endl;
       imprimir_lista(recomendadas);
-      recomendadas.liberar();
     }break;
 
     case 4:
       std::cout << std::endl << "Hasta luego!" << std::endl;
-      liberar_lista(&vistas);
-      liberar_lista(&no_vistas);
     break;
 
     default:
@@ -57,38 +55,41 @@ void Menu::ejecutar_opcion(int opcion, Lista<Pelicula> vistas, Lista<Pelicula> n
   }
 }
 
-Lista<Pelicula> Menu::generar_recomendaciones(Lista<Pelicula> vistas, Lista<Pelicula> no_vistas){
-	Lista<Pelicula> recomendadas;
+void Menu::generar_recomendaciones(Lista<Pelicula>* vistas, Lista<Pelicula>* no_vistas, Lista<Pelicula>* recomendadas){
 	bool ya_esta = false;
-  Pelicula aux_vistas, aux_no_vistas, aux_recomendadas;
 
-  for(int i = INICIO; i <= vistas.obtener_tam(); i++){
-    aux_vistas = vistas.obtener_dato(i);
+  for(int i = INICIO; i <= vistas->obtener_tam(); i++){
+    Pelicula* aux_vistas = vistas->obtener_dato(i);
 
-    for(int j = INICIO; j <= no_vistas.obtener_tam(); j++){
-      aux_no_vistas = no_vistas.obtener_dato(j);
+    for(int j = INICIO; j <= no_vistas->obtener_tam(); j++){
+      Pelicula* aux_no_vistas = no_vistas->obtener_dato(j);
 
-      if(aux_vistas.es_recomendable(aux_no_vistas) ){
+      if(aux_vistas->es_recomendable(aux_no_vistas) ){
 
-        if( !recomendadas.obtener_tam() )
-          recomendadas.agregar_dato(aux_no_vistas);
+        if(!recomendadas->obtener_tam() ){
+          Pelicula* nueva = new Pelicula;
+          nueva->copiar(aux_no_vistas);
+          recomendadas->agregar_dato(nueva);
+        }
         else{
 
-          for(int k = INICIO; k <= recomendadas.obtener_tam(); k++){
-            aux_recomendadas = recomendadas.obtener_dato(k);
-            if(aux_recomendadas.obtener_titulo() == aux_no_vistas.obtener_titulo() )
+          for(int k = INICIO; k <= recomendadas->obtener_tam(); k++){
+            Pelicula* aux_recomendadas = recomendadas->obtener_dato(k);
+            if(aux_recomendadas->obtener_titulo() == aux_no_vistas->obtener_titulo() )
               ya_esta = true;
           }
-          if(!ya_esta)
-            recomendadas.agregar_dato(aux_no_vistas);
+          if(!ya_esta){
+            Pelicula* nueva = new Pelicula;
+            nueva->copiar(aux_no_vistas);
+            recomendadas->agregar_dato(nueva);
+          }
         }
       }
     }
   }
-  return recomendadas;
 }
 
-void Menu::cargar_listas(std::string ruta,Lista<Pelicula> &lista_peliculas){
+void Menu::cargar_listas(std::string ruta,Lista<Pelicula>* lista_peliculas){
 	std::ifstream archivo_leer;
 	archivo_leer.open(ruta);
 	std::string titulo, puntaje_str, genero, director, actores, buffer;
@@ -96,7 +97,7 @@ void Menu::cargar_listas(std::string ruta,Lista<Pelicula> &lista_peliculas){
 
 	if(archivo_leer.is_open()){
 		while(!archivo_leer.eof()){
-			Lista<std::string> lista_actores;
+			Lista<std::string>* lista_actores = new Lista<std::string>;
 			getline(archivo_leer,titulo);
 			getline(archivo_leer,genero);
 			getline(archivo_leer,puntaje_str);
@@ -105,8 +106,8 @@ void Menu::cargar_listas(std::string ruta,Lista<Pelicula> &lista_peliculas){
 			getline(archivo_leer, actores);
 			separar_actores(actores, lista_actores);
 
-			Pelicula pelicula_leida(titulo, genero, puntaje, director, lista_actores);
-			lista_peliculas.agregar_dato(pelicula_leida);
+			Pelicula* pelicula_leida = new Pelicula(titulo, genero, puntaje, director, lista_actores);
+			lista_peliculas->agregar_dato(pelicula_leida);
 
 			getline(archivo_leer,buffer);
 		}
@@ -117,7 +118,7 @@ void Menu::cargar_listas(std::string ruta,Lista<Pelicula> &lista_peliculas){
 	archivo_leer.close();
 }
 
-void Menu::separar_actores(std::string actores, Lista<std::string> &lista_actores){
+void Menu::separar_actores(std::string actores, Lista<std::string>* lista_actores){
 	std::string actor = VACIO;
 	int tam = actor.length();
 	int j = 0;
@@ -133,35 +134,24 @@ void Menu::separar_actores(std::string actores, Lista<std::string> &lista_actore
 		}
 		else{
 			actor.erase(tam-(tam-j));
-			lista_actores.agregar_dato(actor);
+      std::string* actor_final = new std::string;
+      *actor_final = actor;
+			lista_actores->agregar_dato(actor_final);
 			j=0;
 			actor = VACIO;
 		}
 	}
 	actor.erase(tam-(tam-j));
-	lista_actores.agregar_dato(actor);
-	j=0;
+  std::string* actor_final = new std::string;
+  *actor_final = actor;
+  lista_actores->agregar_dato(actor_final);
+  j=0;
 	actor = VACIO;
 }
 
-void Menu::imprimir_lista(Lista<Pelicula> lista_peliculas){
-  Pelicula aux;
-
-  for(int i = INICIO; i <= lista_peliculas.obtener_tam(); i++){
-    aux = lista_peliculas.obtener_dato(i);
-    aux.imprimir_datos_pelicula();
-  }
-}
-
-void Menu::liberar_lista(Lista<Pelicula>* lista_peliculas){
-	Pelicula aux_pelicula;
-	Lista<std::string> aux_lista_actores;
-
+void Menu::imprimir_lista(Lista<Pelicula>* lista_peliculas){
   for(int i = INICIO; i <= lista_peliculas->obtener_tam(); i++){
-	  aux_pelicula = (lista_peliculas->obtener_dato(i) );
-	  aux_lista_actores = aux_pelicula.obtener_lista_actores();
-		aux_lista_actores.liberar();
-	}
-
-	lista_peliculas->liberar();
+    Pelicula* aux = lista_peliculas->obtener_dato(i);
+    aux->imprimir_datos_pelicula();
+  }
 }

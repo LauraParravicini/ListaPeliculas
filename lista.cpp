@@ -1,8 +1,9 @@
+#include <string>
 #include "lista.h"
 #include "pelicula.h"
-
 template class Lista<std::string>;
 template class Lista<Pelicula>;
+
 
 template<typename Tipo>
 Lista<Tipo>::Lista(){
@@ -32,7 +33,7 @@ int Lista<Tipo>::obtener_tam(){
 }
 
 template<typename Tipo>
-void Lista<Tipo>::agregar_dato(Tipo dato){
+void Lista<Tipo>::agregar_dato(Tipo* dato){
     Nodo<Tipo>* nuevo = new Nodo<Tipo>;
     nuevo->asignar_dato(dato);
 
@@ -46,10 +47,10 @@ void Lista<Tipo>::agregar_dato(Tipo dato){
 }
 
 template<typename Tipo>
-Tipo Lista<Tipo>::obtener_dato(int posicion){
+Tipo* Lista<Tipo>::obtener_dato(int posicion){
   int contador = INICIO;
   Nodo<Tipo>* aux = primero;
-  Tipo dato;
+  Tipo* dato;
 
   while(contador <= tam){
     if(posicion == contador){
@@ -65,6 +66,16 @@ Tipo Lista<Tipo>::obtener_dato(int posicion){
 }
 
 template<typename Tipo>
+void Lista<Tipo>::copiar(Lista<Tipo>* copia, Lista<Tipo>* original){
+  for(int i = INICIO; i <= original->obtener_tam(); i++){
+    Tipo* aux = original->obtener_dato(i);
+    Tipo* nueva = new Tipo;
+    *nueva = *aux;
+    copia->agregar_dato(nueva);
+  }
+}
+
+template<typename Tipo>
 void Lista<Tipo>::eliminar_dato(){
     Nodo<Tipo>* aux = primero;
     primero = aux->obtener_siguiente();
@@ -73,15 +84,8 @@ void Lista<Tipo>::eliminar_dato(){
 }
 
 template<typename Tipo>
-void Lista<Tipo>::liberar(){
+Lista<Tipo>::~Lista(){
     while(!esta_vacia() ){
         eliminar_dato();
     }
-}
-
-template<typename Tipo>
-void Lista<Tipo>::copiar(Lista<Tipo> lista){
-  primero = lista.obtener_primero();
-  ultimo = lista.obtener_ultimo();
-  tam = lista.obtener_tam();
 }
